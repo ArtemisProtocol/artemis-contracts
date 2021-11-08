@@ -164,6 +164,8 @@ contract IFOwithCollateral is ReentrancyGuard {
         uint256 offeringTokenAmount = getOfferingAmount(msg.sender);
         uint256 refundingTokenAmount = getRefundingAmount(msg.sender);
 
+        userInfo[msg.sender].claimed = true;
+
         collateralToken.safeTransfer(msg.sender, requiredCollateralAmount);
         if (offeringTokenAmount > 0) {
             offeringToken.safeTransfer(msg.sender, offeringTokenAmount);
@@ -171,7 +173,6 @@ contract IFOwithCollateral is ReentrancyGuard {
         if (refundingTokenAmount > 0) {
             lpToken.safeTransfer(msg.sender, refundingTokenAmount);
         }
-        userInfo[msg.sender].claimed = true;
         emit Harvest(msg.sender, offeringTokenAmount, refundingTokenAmount);
     }
 
@@ -230,9 +231,9 @@ contract IFOwithCollateral is ReentrancyGuard {
             // Only check this condition for the first 14 days after IFO
             require (_lpAmount + totalAdminLpWithdrawn <= raisingAmount, 'withdraw exceeds raisingAmount');
         }
-        require (_lpAmount < lpToken.balanceOf(address(this)), 'not enough token 0');
-        lpToken.safeTransfer(msg.sender, _lpAmount);
+        require (_lpAmount <= lpToken.balanceOf(address(this)), 'not enough token 0');
         totalAdminLpWithdrawn = totalAdminLpWithdrawn + _lpAmount;
+        lpToken.safeTransfer(msg.sender, _lpAmount);
     }
 
     function changeRequiredCollateralAmount(uint256 _newCollateralAmount) public onlyAdmin returns (bool) {
