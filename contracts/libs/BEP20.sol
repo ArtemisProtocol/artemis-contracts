@@ -1,11 +1,16 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.4.0;
+pragma solidity 0.6.12;
 
-import '@openzeppelin/contracts/access/Ownable.sol';
-import '@openzeppelin/contracts/GSN/Context.sol';
+//import '@openzeppelin/contracts/access/Ownable.sol';
+//import '@openzeppelin/contracts/GSN/Context.sol';
+//import '@openzeppelin/contracts/math/SafeMath.sol';
+
+import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.1.0/contracts/access/Ownable.sol";
+import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.1.0/contracts/math/SafeMath.sol";
+
+
 import './IBEP20.sol';
-import '@openzeppelin/contracts/math/SafeMath.sol';
 
 /**
  * @dev Implementation of the {IBEP20} interface.
