@@ -1,10 +1,5 @@
 pragma solidity 0.6.12;
 
-//import "@openzeppelin/contracts/math/SafeMath.sol";
-//import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
-//import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-//import '@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
-
 import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.1.0/contracts/access/Ownable.sol";
 import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.1.0/contracts/token/ERC20/SafeERC20.sol";
 import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.1.0/contracts/utils/Pausable.sol";
