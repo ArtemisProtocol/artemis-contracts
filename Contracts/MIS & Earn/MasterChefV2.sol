@@ -7,64 +7,34 @@ import "./libs/IBEP20.sol";
 import "./libs/SafeBEP20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
-
 import "./ArtemisToken.sol";
 
-// MasterChef is the master of MIS. He can make Mis and he is a fair guy.
-//
-// Note that it's ownable and the owner wields tremendous power. The ownership
-// will be transferred to a governance smart contract once MIS is sufficiently
-// distributed and the community can show to govern itself.
-//
-// Have fun reading it. Hopefully it's bug-free. God bless.
 contract MasterChefV2 is Ownable, ReentrancyGuard {
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 
-    // Info of each user.
     struct UserInfo {
-        uint256 amount;         // How many LP tokens the user has provided.
-        uint256 rewardDebt;     // Reward debt. See explanation below.
-        //
-        // We do some fancy math here. Basically, any point in time, the amount of MISs
-        // entitled to a user but is pending to be distributed is:
-        //
-        //   pending reward = (user.amount * pool.accLaboPerShare) - user.rewardDebt
-        //
-        // Whenever a user deposits or withdraws LP tokens to a pool. Here's what happens:
-        //   1. The pool's `accMisPerShare` (and `lastRewardBlock`) gets updated.
-        //   2. User receives the pending reward sent to his/her address.
-        //   3. User's `amount` gets updated.
-        //   4. User's `rewardDebt` gets updated.
+        uint256 amount;         
+        uint256 rewardDebt;    
     }
 
-    // Info of each pool.
     struct PoolInfo {
-        IBEP20 lpToken;           // Address of LP token contract.
-        uint256 allocPoint;       // How many allocation points assigned to this pool. LABOs to distribute per block.
-        uint256 lastRewardBlock;  // Last block number that LABOs distribution occurs.
-        uint256 accLaboPerShare;   // Accumulated MIS per share, times 1e12. See below.
-        uint16 depositFeeBP;      // Deposit fee in basis points
+        IBEP20 lpToken;         
+        uint256 allocPoint;      
+        uint256 lastRewardBlock; 
+        uint256 accLaboPerShare;   
+        uint16 depositFeeBP;      
     }
 
-    // The MIS TOKEN!
     ArtemisToken public labo;
-    // Dev address.
     address public devaddr;
-    // LABO tokens created per block.
     uint256 public laboPerBlock;
-    // Bonus muliplier for early labo makers.
     uint256 public constant BONUS_MULTIPLIER = 1;
-    // Deposit Fee address
     address public feeAddress;
 
-    // Info of each pool.
     PoolInfo[] public poolInfo;
-    // Info of each user that stakes LP tokens.
     mapping(uint256 => mapping(address => UserInfo)) public userInfo;
-    // Total allocation points. Must be the sum of all allocation points in all pools.
     uint256 public totalAllocPoint = 0;
-    // The block number when MIS mining starts.
     uint256 public startBlock;
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
@@ -102,7 +72,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         _;
     }
 
-    // Add a new lp to the pool. Can only be called by the owner.
     function add(uint256 _allocPoint, IBEP20 _lpToken, uint16 _depositFeeBP, bool _withUpdate) public onlyOwner nonDuplicated(_lpToken) {
         require(_depositFeeBP <= 10000, "add: invalid deposit fee basis points");
         if (_withUpdate) {
@@ -120,7 +89,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         }));
     }
 
-    // Update the given pool's MIS allocation point and deposit fee. Can only be called by the owner.
     function set(uint256 _pid, uint256 _allocPoint, uint16 _depositFeeBP, bool _withUpdate) public onlyOwner {
         require(_depositFeeBP <= 10000, "set: invalid deposit fee basis points");
         if (_withUpdate) {
@@ -131,12 +99,10 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         poolInfo[_pid].depositFeeBP = _depositFeeBP;
     }
 
-    // Return reward multiplier over the given _from to _to block.
     function getMultiplier(uint256 _from, uint256 _to) public view returns (uint256) {
         return _to.sub(_from).mul(BONUS_MULTIPLIER);
     }
 
-    // View function to see pending MIS on frontend.
     function pendingLabo(uint256 _pid, address _user) external view returns (uint256) {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_user];
@@ -150,7 +116,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         return user.amount.mul(accLaboPerShare).div(1e12).sub(user.rewardDebt);
     }
 
-    // Update reward variables for all pools. Be careful of gas spending!
     function massUpdatePools() public {
         uint256 length = poolInfo.length;
         for (uint256 pid = 0; pid < length; ++pid) {
@@ -158,7 +123,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         }
     }
 
-    // Update reward variables of the given pool to be up-to-date.
     function updatePool(uint256 _pid) public {
         PoolInfo storage pool = poolInfo[_pid];
         if (block.number <= pool.lastRewardBlock) {
@@ -177,7 +141,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         pool.lastRewardBlock = block.number;
     }
 
-    // Deposit LP tokens to MasterChef for MIS allocation.
     function deposit(uint256 _pid, uint256 _amount, address _to) public nonReentrant {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_to];
@@ -202,7 +165,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         emit Deposit(_to, _pid, _amount);
     }
 
-    // Withdraw LP tokens from MasterChef.
     function withdraw(uint256 _pid, uint256 _amount) public nonReentrant {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
@@ -220,7 +182,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         emit Withdraw(msg.sender, _pid, _amount);
     }
 
-    // Withdraw without caring about rewards. EMERGENCY ONLY.
     function emergencyWithdraw(uint256 _pid) public nonReentrant {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
@@ -231,7 +192,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         emit EmergencyWithdraw(msg.sender, _pid, amount);
     }
 
-    // Safe mis transfer function, just in case if rounding error causes pool to not have enough MIS.
     function safeLaboTransfer(address _to, uint256 _amount) internal {
         uint256 laboBal = labo.balanceOf(address(this));
         bool transferSuccess = false;
@@ -243,7 +203,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         require(transferSuccess, "safeLaboTransfer: transfer failed");
     }
 
-    // Update dev address by the previous dev.
     function dev(address _devaddr) public {
         require(msg.sender == devaddr, "dev: wut?");
         devaddr = _devaddr;
@@ -256,7 +215,6 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         emit SetFeeAddress(msg.sender, _feeAddress);
     }
 
-    //Pancake has to add hidden dummy pools inorder to alter the emission, here we make it simple and transparent to all.
     function updateEmissionRate(uint256 _laboPerBlock) public onlyOwner {
         massUpdatePools();
         laboPerBlock = _laboPerBlock;
