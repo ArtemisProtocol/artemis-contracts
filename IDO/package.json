@@ -1,0 +1,26 @@
+{
+  "name": "ido",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thetrees1529/IDO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thetrees1529/IDO/issues"
+  },
+  "homepage": "https://github.com/thetrees1529/IDO#readme",
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@openzeppelin/contracts": "^4.4.2",
+    "hardhat": "^2.8.3",
+    "miscsolidity": "github:thetrees1529/miscsolidity"
+  }
+}
