@@ -1,0 +1,14 @@
+{
+    "token": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+    "collateralToken": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+    "tokensForSale": "1000",
+    "ONEToRaise": "10000",
+    "maximumTokensPerWallet": "0",
+    "collateralRequired": "0",
+    "buyingStartsAt": "August 19, 1975 23:15:30 UTC",
+    "buyingEndsAt": "August 20, 1975 23:15:30 UTC",
+    "vestingStartsAt": "August 21, 1975 23:15:30 UTC",
+    "vestingEndsAt": "August 25, 1975 23:15:30 UTC",
+    "timeToClaim": "1000000",
+    "newOwner": "0xe2041dEF046f48c0c5b21D0aa80204e98287e7aa"
+}

@@ -21,6 +21,7 @@
     "@nomiclabs/hardhat-ethers": "^2.0.4",
     "@openzeppelin/contracts": "^4.4.2",
     "hardhat": "^2.8.3",
-    "miscsolidity": "github:thetrees1529/miscsolidity"
+    "miscsolidity": "github:thetrees1529/miscsolidity",
+    "prompt-sync": "^4.2.0"
   }
 }

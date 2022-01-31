@@ -10,8 +10,8 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
 
     bool _lockedIn;
 
-    constructor(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt, uint timeToClaim) {
-        setParams(token, tokensForSale, collateralToken, collateralRequired, ONEToRaise, buyingStartsAt, buyingEndsAt, vestingStartsAt, vestingEndsAt, timeToClaim);
+    constructor(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt, uint timeToClaim, uint maximumTokensPerWallet) {
+        setParams(token, tokensForSale, collateralToken, collateralRequired, ONEToRaise, buyingStartsAt, buyingEndsAt, vestingStartsAt, vestingEndsAt, timeToClaim, maximumTokensPerWallet);
     }
 
     uint _timeToClaim;
@@ -63,6 +63,7 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
         if(!_user.collateralPaid && _collateralRequired > 0) {
             _collateralToken.transferFrom(msg.sender, address(this), _collateralRequired);
             _user.collateralPaid = true;
+            emit CollateralPaid(msg.sender);
         }
 
         uint toBuy = (msg.value * _tokensForSale) / _ONEToRaise;
@@ -78,6 +79,8 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
         _ONERaised += msg.value;
 
         _distributeFee(msg.value);
+
+        emit TokensPurchased(msg.sender, msg.value, toBuy);
     }
 
     function getUser(address user) public override view returns(User memory) {
@@ -93,13 +96,16 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
         }
 
         uint totalTimeVested = _vestingEndsAt - _vestingStartsAt;
-        uint timeVested = block.timestamp - _vestingStartsAt;
+        uint timeSince = block.timestamp - _vestingStartsAt;
+        uint timeVested = timeSince > totalTimeVested ? totalTimeVested : timeSince;
 
         return ((_user.tokensBought * timeVested) / totalTimeVested) - _user.tokensClaimed; 
 
     }
 
     function claim() public override {
+
+        require(status() == STATUS.claimable, "Wait until linear vesting begins.");
 
         User storage _user = _users[msg.sender];
 
@@ -109,6 +115,19 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
 
         _token.transfer(msg.sender, toClaim);
 
+        emit TokensClaimed(msg.sender, toClaim);
+
+    }
+
+    function retrieveCollateral() public override {
+
+        User storage _user = _users[msg.sender];
+
+        require(_user.collateralPaid, "No collateral.");
+
+        _collateralToken.transfer(msg.sender, _collateralRequired);
+
+        emit CollateralRetrieved(msg.sender);
     }
 
     function withdrawONE(address to, uint value) public override onlyOwner {
@@ -123,10 +142,13 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
     }
 
     function lockIn() public override onlyOwner {
-        _lockedIn = true;
+        if(!_lockedIn) {
+            _lockedIn = true;
+            emit Locked();
+        }
     }
 
-    function setParams(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt, uint timeToClaim) public override onlyOwner {
+    function setParams(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt, uint timeToClaim, uint maximumTokensPerWallet) public override onlyOwner {
         require(!_lockedIn, "Owner has locked in these parameters in the interest of decentralisation.");
 
         _token = token;
@@ -139,8 +161,19 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
         _vestingStartsAt = vestingStartsAt;
         _vestingEndsAt = vestingEndsAt;
         _timeToClaim = timeToClaim;
+        _maximumTokensPerWallet = maximumTokensPerWallet;
+
+        if(maximumTokensPerWallet > 0) {
+            if(!_enforceMaximumTokensPerWallet) {
+                _enforceMaximumTokensPerWallet = true;
+            }
+        } else if(_enforceMaximumTokensPerWallet) {
+            _enforceMaximumTokensPerWallet = false;
+        }
 
         _checkValid();
+
+        emit ParamsSet(token, tokensForSale, collateralToken, collateralRequired, ONEToRaise, buyingStartsAt, buyingEndsAt, vestingStartsAt, vestingEndsAt, timeToClaim);
     }
 
     function _checkValid() private view {
