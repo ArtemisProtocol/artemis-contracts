@@ -8,17 +8,13 @@ import "./IIDO.sol";
 
 contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
 
-    constructor(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt) {
-        _token = token;
-        _tokensForSale = tokensForSale;
-        _collateralToken = collateralToken;
-        _collateralRequired = collateralRequired;
-        _ONEToRaise = ONEToRaise;
-        _buyingStartsAt = buyingStartsAt;
-        _buyingEndsAt = buyingEndsAt;
-        _vestingStartsAt = vestingStartsAt;
-        _vestingEndsAt = vestingEndsAt;
+    bool _lockedIn;
+
+    constructor(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt, uint timeToClaim) {
+        setParams(token, tokensForSale, collateralToken, collateralRequired, ONEToRaise, buyingStartsAt, buyingEndsAt, vestingStartsAt, vestingEndsAt, timeToClaim);
     }
+
+    uint _timeToClaim;
 
     uint _buyingStartsAt;
     uint _buyingEndsAt;
@@ -53,6 +49,10 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
         return STATUS.pre;
     }
 
+    function isLockedIn() public override view returns(bool) {
+        return _lockedIn;
+    }
+
     receive() external override payable {
 
         require(status() == STATUS.inprogress, "Can only purchase when ICO is in progress.");
@@ -70,6 +70,8 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
         if(_enforceMaximumTokensPerWallet) {
             require(toBuy + _user.tokensBought <= _maximumTokensPerWallet, "Cannot purchase this many tokens.");
         }
+
+        require(toBuy + _tokensSold <= _tokensForSale, "Cannot purchase this many tokens.");
 
         _tokensSold += toBuy;
         _user.tokensBought += toBuy;
@@ -108,4 +110,53 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
         _token.transfer(msg.sender, toClaim);
 
     }
+
+    function withdrawONE(address to, uint value) public override onlyOwner {
+        to.call{value: value}("");
+    }
+
+    function withdrawTokens(address to, uint value) public override onlyOwner {
+        if(_lockedIn) {
+            require(block.timestamp > _vestingEndsAt + _timeToClaim, "Must leave time for participants to collect.");
+        }
+        _token.transfer(to, value);
+    }
+
+    function lockIn() public override onlyOwner {
+        _lockedIn = true;
+    }
+
+    function setParams(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt, uint timeToClaim) public override onlyOwner {
+        require(!_lockedIn, "Owner has locked in these parameters in the interest of decentralisation.");
+
+        _token = token;
+        _tokensForSale = tokensForSale;
+        _collateralToken = collateralToken;
+        _collateralRequired = collateralRequired;
+        _ONEToRaise = ONEToRaise;
+        _buyingStartsAt = buyingStartsAt;
+        _buyingEndsAt = buyingEndsAt;
+        _vestingStartsAt = vestingStartsAt;
+        _vestingEndsAt = vestingEndsAt;
+        _timeToClaim = timeToClaim;
+
+        _checkValid();
+    }
+
+    function _checkValid() private view {
+
+        (bool tokenExists,) = address(_token).staticcall(abi.encodeWithSignature("balanceOf(address)", address(this)));
+        require(tokenExists, "Token is not valid.");
+
+        (bool collateralTokenExists,) = address(_token).staticcall(abi.encodeWithSignature("balanceOf(address)", address(this)));
+        require(collateralTokenExists, "Collateral token is not valid.");
+
+        require(_buyingEndsAt >= _buyingStartsAt, "Buying cannot end before it begins.");
+
+        require(_vestingStartsAt > _buyingEndsAt, "Vesting must begin after buying ends.");
+
+        require(_vestingEndsAt > _vestingStartsAt, "Vesting cannot end before it begins.");
+
+    }
+
 }

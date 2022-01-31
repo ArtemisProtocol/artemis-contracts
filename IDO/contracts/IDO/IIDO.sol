@@ -17,4 +17,13 @@ interface IIDO {
 
     function claim() external;
 
+    function withdrawONE(address to, uint value) external;
+
+    function withdrawTokens(address to, uint value) external;
+
+    function setParams(IERC20 token, uint tokensForSale, IERC20 collateralToken, uint collateralRequired, uint ONEToRaise, uint buyingStartsAt, uint buyingEndsAt, uint vestingStartsAt, uint vestingEndsAt, uint timeToClaim) external;
+
+    function isLockedIn() external view returns(bool);
+
+    function lockIn() external;
 }
