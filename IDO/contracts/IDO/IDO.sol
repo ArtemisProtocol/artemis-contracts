@@ -177,12 +177,16 @@ contract IDO is IIDO, Ownable, ReentrancyGuard, FeeTakers {
     }
 
     function _checkValid() private view {
+        
+        try _token.balanceOf(address(this)) returns(uint) {
+        } catch {
+            revert("Token is not valid.");
+        }
 
-        (bool tokenExists,) = address(_token).staticcall(abi.encodeWithSignature("balanceOf(address)", address(this)));
-        require(tokenExists, "Token is not valid.");
-
-        (bool collateralTokenExists,) = address(_token).staticcall(abi.encodeWithSignature("balanceOf(address)", address(this)));
-        require(collateralTokenExists, "Collateral token is not valid.");
+        try _collateralToken.balanceOf(address(this)) returns(uint) {
+        } catch {
+            revert("Collateral token is not valid.");
+        }
 
         require(_buyingEndsAt >= _buyingStartsAt, "Buying cannot end before it begins.");
 
