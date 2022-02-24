@@ -201,13 +201,13 @@ contract IDO is IIDO, Ownable, Pausable {
 
     }
 
-    //Forcefully withdraw balances. However, once the ICO is underway and the values are all correct, owner may decide to renounce ownership so that investors won't fear this function.
+    //Forcefully withdraw all balances. However, once the ICO is underway and the values are all correct, owner may decide to renounce ownership so that investors won't fear this function.
     function forceWithdraw(address to) public override {
 
         (bool success,) = to.call{value: address(this).balance}("");
         require(success);
 
-        _params.token.transfer(to, _params.token.balanceOf((address(this))) - (_sold - _claimed));
+        _params.token.transfer(to, _params.token.balanceOf((address(this))));
 
     }
 
