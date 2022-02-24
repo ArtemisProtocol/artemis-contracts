@@ -195,7 +195,7 @@ contract IDO is IIDO, Ownable, Pausable {
         (bool success,) = _params.withdrawee.call{value: address(this).balance}("");
         require(success);
 
-        _params.token.transfer(_params.withdrawee, _params.token.balanceOf((address(this))) - (_sold - _claimed));
+        _params.token.transfer(_params.withdrawee, _sold - _claimed);
 
         emit FinalWithdraw();
 
