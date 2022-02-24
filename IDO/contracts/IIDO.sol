@@ -11,6 +11,7 @@ enum Status {
 
 }
 
+//Ratio for price. An example would be 10 wei for 2 wei of token, or 5000 wei for 350 wei of token.
 struct Price {
     uint asking;
     uint inReturn;
