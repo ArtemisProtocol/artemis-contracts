@@ -188,7 +188,7 @@ contract IDO is IIDO, Ownable, Pausable {
     //Withdraw all ONE and unsold tokens to withdrawee. Unrestricted, so that nobody can withhold the transfer to the rightful receiver.
     function finalWithdraw() public override {
 
-        status();
+        require(_initialised, "ICO has not been initialised.");
 
         require(block.timestamp >= _params.end, "ICO not ended.");
 
