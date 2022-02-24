@@ -132,7 +132,8 @@ contract IDO is IIDO, Ownable, Pausable {
 
     function retrieveCollateral() public override {
 
-        require(status() != Status.inprogress, "ICO is in progress.");
+        require(_initialised, "ICO has not been initialised.");
+        require(block.timestamp >= _params.end, "ICO has not ended yet.");
 
         Participant storage participant = _participants[msg.sender];
 
