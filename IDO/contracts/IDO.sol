@@ -81,7 +81,7 @@ contract IDO is IIDO, Ownable, Pausable {
             return Status.awaitingstart;
         }
 
-        if(block.timestamp < _params.end) {
+        if(block.timestamp <= _params.end) {
             return Status.inprogress;
         }
 
@@ -89,7 +89,7 @@ contract IDO is IIDO, Ownable, Pausable {
             return Status.awaitingvesting;
         }
 
-        if(block.timestamp < _params.vestingEnd) {
+        if(block.timestamp <= _params.vestingEnd) {
             return Status.vesting;
         }
 
