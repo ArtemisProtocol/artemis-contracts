@@ -172,13 +172,13 @@ contract IDO is IIDO, Ownable {
     }
 
     //forcefully withdraw tokens.
-    function forceWithdrawTokens(address addr, uint amount) external override onlyOwner {
-        _token.transfer(addr, amount);
+    function forceWithdrawTokens(address to, uint amount) external override onlyOwner {
+        _token.transfer(to, amount);
     }
 
     //forcefully withdraw ONE.
-    function forceWithdrawONE(address addr, uint amount) external override onlyOwner {
-        (bool success,) = addr.call{value: amount}("");
+    function forceWithdrawONE(address to, uint amount) external override onlyOwner {
+        (bool success,) = to.call{value: amount}("");
         require(success);
     }
 

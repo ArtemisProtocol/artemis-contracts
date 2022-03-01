@@ -33,6 +33,6 @@ interface IIDO {
     function getClaimableOf(address addr) external view returns(uint);
     function withdrawUnsoldTokens(address to) external;
     function withdrawONE(address to) external;
-    function forceWithdrawTokens(address addr, uint amount) external;
-    function forceWithdrawONE(address addr, uint amount) external;
+    function forceWithdrawTokens(address to, uint amount) external;
+    function forceWithdrawONE(address to, uint amount) external;
 }
