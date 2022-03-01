@@ -156,7 +156,7 @@ contract IDO is IIDO, Ownable {
     }
 
     //withdraw ONE.
-    function withdrawONE() external override onlyOwner {
+    function withdrawONE(address to) external override onlyOwner {
         require(block.timestamp >= _buyingEndsAt, "Buying has not yet ended.");
 
         uint totalWithdrawable;
@@ -167,7 +167,7 @@ contract IDO is IIDO, Ownable {
         }
         uint withdrawable = totalWithdrawable - _ONEWithdrawn;
         _ONEWithdrawn -= withdrawable;
-        (bool success,) = msg.sender.call{value: withdrawable}("");
+        (bool success,) = to.call{value: withdrawable}("");
         require(success);
     }
 
