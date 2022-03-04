@@ -702,6 +702,80 @@
       "artifacts": [
         "IDOWithCollateralAndWhitelist"
       ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDOWithJustCollateral.sol": {
+      "lastModificationDate": 1646418174534,
+      "contentHash": "7a4d5941a4454606617967e24045b6fa",
+      "sourceName": "contracts/IDOWithJustCollateral.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./extensions/IDOWithCollateral/IDOWithCollateral.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDOWithJustCollateral"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDOWithJustWhitelist.sol": {
+      "lastModificationDate": 1646418216950,
+      "contentHash": "f7c6d6dbcb5d17437c3d42732279b0ea",
+      "sourceName": "contracts/IDOWithJustWhitelist.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./extensions/IDOWithWhitelist/IDOWithWhitelist.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDOWithJustCollateral"
+      ]
     }
   }
 }
