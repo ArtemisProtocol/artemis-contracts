@@ -1,0 +1,16 @@
+//SPDX-License-Identifier: Unlicensed
+import "./IFOwithCollateralWithHook.sol";
+import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+pragma solidity ^0.6.0;
+contract IDOWithWhitelist is IFOwithCollateralWithWhitelist, AccessControlEnumerable {
+    bytes32 public override WHITELISTER_ROLE = keccak256("WHITELISTER_ROLE");
+    bytes32 public override WHITELISTED_ROLE = keccak256("WHITELISTED_ROLE");
+    constructor() {
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _setRoleAdmin(WHITELISTED_ROLE, WHITELISTER_ROLE);
+    }
+    function _beforeDeposit(address addr, uint amount) internal virtual override {
+        require(hasRole(WHITELISTED_ROLE, addr), "User has not been whitelisted.");
+        super._beforeContribution(addr,amount);
+    }
+}
