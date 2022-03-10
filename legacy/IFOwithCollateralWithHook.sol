@@ -140,7 +140,7 @@ contract IFOwithCollateralWithHook is ReentrancyGuard {
         require (block.number > startBlock && block.number < endBlock, 'not ifo time');
         require (_amount > 0, 'need _amount > 0');
         require (userInfo[msg.sender].hasCollateral, 'user needs to stake collateral first');
-        _beforeDeposit(msg.sender, amount);
+        _beforeDeposit(msg.sender, _amount);
         if (userInfo[msg.sender].amount == 0) {
             addressList.push(msg.sender);
         }
