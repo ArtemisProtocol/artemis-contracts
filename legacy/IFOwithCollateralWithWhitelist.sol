@@ -2,7 +2,7 @@
 import "./IFOwithCollateralWithHook.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 pragma solidity ^0.6.0;
-contract IDOWithWhitelist is IFOwithCollateralWithWhitelist, AccessControlEnumerable {
+contract IDOwithCollateralWithWhitelist is IFOwithCollateralWithHook, AccessControlEnumerable {
     bytes32 public override WHITELISTER_ROLE = keccak256("WHITELISTER_ROLE");
     bytes32 public override WHITELISTED_ROLE = keccak256("WHITELISTED_ROLE");
     constructor() {
