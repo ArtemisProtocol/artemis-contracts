@@ -28,4 +28,9 @@ contract IDOwithCollateralWithWhitelist is IFOwithCollateralWithHook, AccessCont
         require(hasRole(WHITELISTED_ROLE, addr), "User has not been whitelisted.");
         super._beforeDeposit(addr,amount);
     }
+    function whitelistAddresses(address[] memory addresses) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        for(uint i; i < addresses.length; i ++) {
+            grantRole(addresses[i]);
+        }
+    }
 }
