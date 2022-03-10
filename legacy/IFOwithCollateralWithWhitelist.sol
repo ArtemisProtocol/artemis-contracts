@@ -1,6 +1,6 @@
 //SPDX-License-Identifier: Unlicensed
 import "./IFOwithCollateralWithHook.sol";
-import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.1.0/contracts/access/AccessControlEnumerable.sol";
 pragma solidity ^0.6.0;
 contract IDOwithCollateralWithWhitelist is IFOwithCollateralWithHook, AccessControlEnumerable {
     bytes32 public override WHITELISTER_ROLE = keccak256("WHITELISTER_ROLE");
