@@ -10,7 +10,6 @@ contract IDO is IIDO, Ownable, Pausable {
     mapping(address=>UserStats) _userStats;
 
     constructor(Parameters memory parameters) {
-        parameters.token.transferFrom(msg.sender, address(this), parameters.forSale);
         _parameters = parameters;
     }
 

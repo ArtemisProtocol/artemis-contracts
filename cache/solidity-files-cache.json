@@ -741,8 +741,8 @@
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDOWithJustWhitelist.sol": {
-      "lastModificationDate": 1646418216950,
-      "contentHash": "f7c6d6dbcb5d17437c3d42732279b0ea",
+      "lastModificationDate": 1646936554077,
+      "contentHash": "ce92c39e74b916eb7996dfc91912fe29",
       "sourceName": "contracts/IDOWithJustWhitelist.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -774,7 +774,7 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "IDOWithJustCollateral"
+        "IDOWithJustWhitelist"
       ]
     }
   }
