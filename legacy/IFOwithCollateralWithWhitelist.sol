@@ -30,7 +30,7 @@ contract IDOwithCollateralWithWhitelist is IFOwithCollateralWithHook, AccessCont
     }
     function whitelistAddresses(address[] memory addresses) external {
         for(uint i; i < addresses.length; i ++) {
-            grantRole(addresses[i]);
+            grantRole(WHITELISTED_ROLE,addresses[i]);
         }
     }
 }
