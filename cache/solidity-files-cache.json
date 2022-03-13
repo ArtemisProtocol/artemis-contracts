@@ -439,8 +439,8 @@
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\extensions\\IDOWithCollateral\\IDOWithCollateral.sol": {
-      "lastModificationDate": 1646416735180,
-      "contentHash": "79dc8b2e00b463e9be702af8f7e2f634",
+      "lastModificationDate": 1647184001916,
+      "contentHash": "19d1fe1a0135f801f7981cb32f8496fd",
       "sourceName": "contracts/extensions/IDOWithCollateral/IDOWithCollateral.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -479,8 +479,8 @@
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO.sol": {
-      "lastModificationDate": 1646415739383,
-      "contentHash": "f28e251cd6bd62fddb649153cba51851",
+      "lastModificationDate": 1646936579286,
+      "contentHash": "130355367a2dd767be34d967695bb315",
       "sourceName": "contracts/IDO.sol",
       "solcConfig": {
         "version": "0.8.12",

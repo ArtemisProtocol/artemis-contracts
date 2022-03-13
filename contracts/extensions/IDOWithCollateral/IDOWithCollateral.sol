@@ -14,7 +14,7 @@ abstract contract IDOWithCollateral is IIDOWithCollateral, IDO, AccessControlEnu
         return _collateralInfo;
     }
     function collateralise() external override {
-        require(block.timestamp < _parameters.buyingStartsAt, "Buying has not already started.");
+        require(block.timestamp < _parameters.buyingEndsAt, "Cannot collateralise after buying ends.");
         require(!hasRole(COLLATERALISED_ROLE, msg.sender), "Already collateralised.");
         _collateralInfo.token.transferFrom(msg.sender, address(this), _collateralInfo.amount);
         _grantRole(COLLATERALISED_ROLE, msg.sender);
