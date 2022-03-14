@@ -1,11 +1,10 @@
 //SPDX-License-Identifier: Unlicensed
 import "../../IDO.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./IIDOWithCollateral.sol";
 pragma solidity ^0.8.0;
-abstract contract IDOWithCollateral is IIDOWithCollateral, IDO, AccessControlEnumerable, ReentrancyGuard {
+abstract contract IDOWithCollateral is IIDOWithCollateral, IDO, AccessControlEnumerable {
     bytes32 public override COLLATERALISED_ROLE = keccak256("COLLATERALISED_ROLE");
     CollateralInfo _collateralInfo;
     constructor(CollateralInfo memory collateralInfo) {

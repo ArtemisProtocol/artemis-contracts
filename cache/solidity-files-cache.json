@@ -439,8 +439,8 @@
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\extensions\\IDOWithCollateral\\IDOWithCollateral.sol": {
-      "lastModificationDate": 1647295567552,
-      "contentHash": "53aef2dc62b10609a6e439f47192bc52",
+      "lastModificationDate": 1647295837208,
+      "contentHash": "49289d5d8ed08cfddc19bf7e761d0ef2",
       "sourceName": "contracts/extensions/IDOWithCollateral/IDOWithCollateral.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -467,7 +467,6 @@
       },
       "imports": [
         "../../IDO.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
         "@openzeppelin/contracts/access/AccessControlEnumerable.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "./IIDOWithCollateral.sol"
@@ -480,8 +479,8 @@
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO.sol": {
-      "lastModificationDate": 1647295363112,
-      "contentHash": "0446094bc4cb023b4c7c5c9b3969582b",
+      "lastModificationDate": 1647295665505,
+      "contentHash": "04d675573dd86973f6438aae03440923",
       "sourceName": "contracts/IDO.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -509,6 +508,7 @@
       "imports": [
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
         "./IIDO.sol"
       ],
       "versionPragmas": [
