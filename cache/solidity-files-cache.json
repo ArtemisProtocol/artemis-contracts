@@ -438,346 +438,6 @@
         "IERC165"
       ]
     },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\extensions\\IDOWithCollateral\\IDOWithCollateral.sol": {
-      "lastModificationDate": 1647295837208,
-      "contentHash": "49289d5d8ed08cfddc19bf7e761d0ef2",
-      "sourceName": "contracts/extensions/IDOWithCollateral/IDOWithCollateral.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../IDO.sol",
-        "@openzeppelin/contracts/access/AccessControlEnumerable.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "./IIDOWithCollateral.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IDOWithCollateral"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO.sol": {
-      "lastModificationDate": 1647295665505,
-      "contentHash": "04d675573dd86973f6438aae03440923",
-      "sourceName": "contracts/IDO.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/security/Pausable.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-        "./IIDO.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IDO"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\extensions\\IDOWithCollateral\\IIDOWithCollateral.sol": {
-      "lastModificationDate": 1646310339271,
-      "contentHash": "ac1a1ffbe71f4d8f2f1813a85760689a",
-      "sourceName": "contracts/extensions/IDOWithCollateral/IIDOWithCollateral.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IIDOWithCollateral"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IIDO.sol": {
-      "lastModificationDate": 1647295318540,
-      "contentHash": "095860c35338b44e7eb572db2d707bae",
-      "sourceName": "contracts/IIDO.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IIDO"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\extensions\\IDOWithWhitelist\\IDOWithWhitelist.sol": {
-      "lastModificationDate": 1646416741311,
-      "contentHash": "0f6bffcbf4b30fb8cc70ce8b95b0ece5",
-      "sourceName": "contracts/extensions/IDOWithWhitelist/IDOWithWhitelist.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../IDO.sol",
-        "./IIDOWithWhitelist.sol",
-        "@openzeppelin/contracts/access/AccessControlEnumerable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IDOWithWhitelist"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\extensions\\IDOWithWhitelist\\IIDOWithWhitelist.sol": {
-      "lastModificationDate": 1646309632896,
-      "contentHash": "38274c6f027d28d73c7edc5eb6dd26dc",
-      "sourceName": "contracts/extensions/IDOWithWhitelist/IIDOWithWhitelist.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IIDOWithWhitelist"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDOWithCollateralAndWhitelist.sol": {
-      "lastModificationDate": 1646416906580,
-      "contentHash": "6273b8c7cc37fa858e086182ab38a3f8",
-      "sourceName": "contracts/IDOWithCollateralAndWhitelist.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./extensions/IDOWithCollateral/IDOWithCollateral.sol",
-        "./extensions/IDOWithWhitelist/IDOWithWhitelist.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IDOWithCollateralAndWhitelist"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDOWithJustCollateral.sol": {
-      "lastModificationDate": 1646418174534,
-      "contentHash": "7a4d5941a4454606617967e24045b6fa",
-      "sourceName": "contracts/IDOWithJustCollateral.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./extensions/IDOWithCollateral/IDOWithCollateral.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IDOWithJustCollateral"
-      ]
-    },
-    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDOWithJustWhitelist.sol": {
-      "lastModificationDate": 1646936554077,
-      "contentHash": "ce92c39e74b916eb7996dfc91912fe29",
-      "sourceName": "contracts/IDOWithJustWhitelist.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./extensions/IDOWithWhitelist/IDOWithWhitelist.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IDOWithJustWhitelist"
-      ]
-    },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\node_modules\\@openzeppelin\\contracts\\security\\ReentrancyGuard.sol": {
       "lastModificationDate": 1646310706763,
       "contentHash": "92f9448b23a90ea3bb932ee55cc3ccce",
@@ -884,6 +544,347 @@
       ],
       "artifacts": [
         "Address"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithCollateral\\IDOWithCollateral.sol": {
+      "lastModificationDate": 1647295853066,
+      "contentHash": "8c6802dcb2c8f2a5384b5593e655fd79",
+      "sourceName": "contracts/IDO/extensions/IDOWithCollateral/IDOWithCollateral.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../IDO.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/access/AccessControlEnumerable.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "./IIDOWithCollateral.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDOWithCollateral"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDO.sol": {
+      "lastModificationDate": 1647295665505,
+      "contentHash": "04d675573dd86973f6438aae03440923",
+      "sourceName": "contracts/IDO/IDO.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "./IIDO.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDO"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithCollateral\\IIDOWithCollateral.sol": {
+      "lastModificationDate": 1646310339271,
+      "contentHash": "ac1a1ffbe71f4d8f2f1813a85760689a",
+      "sourceName": "contracts/IDO/extensions/IDOWithCollateral/IIDOWithCollateral.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IIDOWithCollateral"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IIDO.sol": {
+      "lastModificationDate": 1647295318540,
+      "contentHash": "095860c35338b44e7eb572db2d707bae",
+      "sourceName": "contracts/IDO/IIDO.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IIDO"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDOWithJustCollateral.sol": {
+      "lastModificationDate": 1646418174534,
+      "contentHash": "7a4d5941a4454606617967e24045b6fa",
+      "sourceName": "contracts/IDO/IDOWithJustCollateral.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./extensions/IDOWithCollateral/IDOWithCollateral.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDOWithJustCollateral"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDOWithCollateralAndWhitelist.sol": {
+      "lastModificationDate": 1646416906580,
+      "contentHash": "6273b8c7cc37fa858e086182ab38a3f8",
+      "sourceName": "contracts/IDO/IDOWithCollateralAndWhitelist.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./extensions/IDOWithCollateral/IDOWithCollateral.sol",
+        "./extensions/IDOWithWhitelist/IDOWithWhitelist.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDOWithCollateralAndWhitelist"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithWhitelist\\IDOWithWhitelist.sol": {
+      "lastModificationDate": 1646416741311,
+      "contentHash": "0f6bffcbf4b30fb8cc70ce8b95b0ece5",
+      "sourceName": "contracts/IDO/extensions/IDOWithWhitelist/IDOWithWhitelist.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../IDO.sol",
+        "./IIDOWithWhitelist.sol",
+        "@openzeppelin/contracts/access/AccessControlEnumerable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDOWithWhitelist"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithWhitelist\\IIDOWithWhitelist.sol": {
+      "lastModificationDate": 1646309632896,
+      "contentHash": "38274c6f027d28d73c7edc5eb6dd26dc",
+      "sourceName": "contracts/IDO/extensions/IDOWithWhitelist/IIDOWithWhitelist.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IIDOWithWhitelist"
+      ]
+    },
+    "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDOWithJustWhitelist.sol": {
+      "lastModificationDate": 1646936554077,
+      "contentHash": "ce92c39e74b916eb7996dfc91912fe29",
+      "sourceName": "contracts/IDO/IDOWithJustWhitelist.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./extensions/IDOWithWhitelist/IDOWithWhitelist.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDOWithJustWhitelist"
       ]
     }
   }
