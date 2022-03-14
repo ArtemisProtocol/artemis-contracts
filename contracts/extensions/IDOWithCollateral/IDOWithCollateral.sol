@@ -1,10 +1,11 @@
 //SPDX-License-Identifier: Unlicensed
 import "../../IDO.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./IIDOWithCollateral.sol";
 pragma solidity ^0.8.0;
-abstract contract IDOWithCollateral is IIDOWithCollateral, IDO, AccessControlEnumerable {
+abstract contract IDOWithCollateral is IIDOWithCollateral, IDO, AccessControlEnumerable, ReentrancyGuard {
     bytes32 public override COLLATERALISED_ROLE = keccak256("COLLATERALISED_ROLE");
     CollateralInfo _collateralInfo;
     constructor(CollateralInfo memory collateralInfo) {
@@ -13,14 +14,14 @@ abstract contract IDOWithCollateral is IIDOWithCollateral, IDO, AccessControlEnu
     function getCollateralInfo() external view override returns(CollateralInfo memory) {
         return _collateralInfo;
     }
-    function collateralise() external override {
+    function collateralise() external nonReentrant override {
         require(block.timestamp < _parameters.buyingStartsAt, "Cannot collateralise after buying starts.");
         require(!hasRole(COLLATERALISED_ROLE, msg.sender), "Already collateralised.");
         _collateralInfo.token.transferFrom(msg.sender, address(this), _collateralInfo.amount);
         _grantRole(COLLATERALISED_ROLE, msg.sender);
         emit Collateralised(msg.sender);
     }
-    function refundCollateral() external override {
+    function refundCollateral() external nonReentrant override {
         require(block.timestamp >= _parameters.buyingEndsAt, "Buying has not ended yet.");
         require(hasRole(COLLATERALISED_ROLE, msg.sender), "Not collateralised.");
         _collateralInfo.token.transfer(msg.sender, _collateralInfo.amount);

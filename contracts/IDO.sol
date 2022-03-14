@@ -2,8 +2,11 @@
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "./IIDO.sol";
-contract IDO is IIDO, Ownable, Pausable {
+contract IDO is IIDO, Ownable, Pausable, ReentrancyGuard {
+
+    using SafeERC20 for IERC20;
 
     Parameters _parameters;
     GlobalStats _globalStats;
@@ -34,17 +37,17 @@ contract IDO is IIDO, Ownable, Pausable {
         emit Contributed(msg.sender, msg.value);
     }
 
-    function claim() external override whenNotPaused {
+    function claim() external override nonReentrant whenNotPaused {
         require(block.timestamp >= _parameters.vestingStartsAt, "Vesting has not begun yet.");
         UserStats storage userStats = _userStats[msg.sender];
         uint toClaim = _claimableOfUserStats(userStats);
         userStats.claimed += toClaim;
         _globalStats.claimed += toClaim;
-        _parameters.token.transfer(msg.sender, toClaim);
+        _parameters.token.safeTransfer(msg.sender, toClaim);
         emit Claimed(msg.sender, toClaim);
     }
 
-    function refund() external override whenNotPaused {
+    function refund() external override nonReentrant whenNotPaused {
         require(block.timestamp >= _parameters.buyingEndsAt, "Buying has not ended yet.");
         require(_isOverflow(), "There was no overflow.");
         UserStats storage userStats = _userStats[msg.sender];
@@ -68,7 +71,7 @@ contract IDO is IIDO, Ownable, Pausable {
         require(block.timestamp >= _parameters.buyingEndsAt, "Buying has not ended yet.");
         uint toReturn = returnable();
         _globalStats.returned += toReturn;
-        _parameters.token.transfer(msg.sender, toReturn);
+        _parameters.token.safeTransfer(msg.sender, toReturn);
         emit Returned(msg.sender, toReturn);
     }
 
@@ -92,11 +95,11 @@ contract IDO is IIDO, Ownable, Pausable {
         return _parameters.forSale - ((_parameters.forSale * _globalStats.contributed) / _parameters.asking) - _globalStats.returned;
     }
 
-    function claimableOf(address addr) public override view returns(uint claimable) {
+    function claimableOf(address addr) external override view returns(uint claimable) {
         claimable = _claimableOfUserStats(_userStats[addr]);
     }
 
-    function refundableOf(address addr) public override view returns(uint refundable) {
+    function refundableOf(address addr) external override view returns(uint refundable) {
         refundable = _refundableOfUserStats(_userStats[addr]);
     }
 
@@ -106,7 +109,7 @@ contract IDO is IIDO, Ownable, Pausable {
     }
 
     function forceReturn(uint amount) external override onlyOwner {
-        _parameters.token.transfer(msg.sender, amount);
+        _parameters.token.safeTransfer(msg.sender, amount);
     }
 
     function pause() external override onlyOwner {
