@@ -1,9 +1,9 @@
 //SPDX-License-Identifier: Unlicensed
+pragma solidity 0.8.13;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-pragma solidity ^0.8.0;
 struct CollateralInfo {
     IERC20 token;
-    uint amount;
+    uint256 amount;
 }
 interface IIDOWithCollateral {
     event Collateralised(address addr);

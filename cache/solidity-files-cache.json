@@ -6,7 +6,7 @@
       "contentHash": "b6d9b165dc57e9ad8153bdca05c783a4",
       "sourceName": "@openzeppelin/contracts/access/AccessControlEnumerable.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -45,7 +45,7 @@
       "contentHash": "a44d1a099633876550ad2476b21bafbe",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -80,7 +80,7 @@
       "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -117,7 +117,7 @@
       "contentHash": "9c2dccab8e3a43a18c41e358763fe4d8",
       "sourceName": "@openzeppelin/contracts/security/Pausable.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -154,7 +154,7 @@
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -189,7 +189,7 @@
       "contentHash": "4e71cc90682e109e999ce2bd329f6572",
       "sourceName": "@openzeppelin/contracts/access/IAccessControlEnumerable.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -226,7 +226,7 @@
       "contentHash": "76cae8e1eb9c27e818b0b08e1527f731",
       "sourceName": "@openzeppelin/contracts/access/AccessControl.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -266,7 +266,7 @@
       "contentHash": "b8070bbbb327a49a4d37f5c590b38238",
       "sourceName": "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -301,7 +301,7 @@
       "contentHash": "57c84298234411cea19c7c284d86be8b",
       "sourceName": "@openzeppelin/contracts/access/IAccessControl.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -336,7 +336,7 @@
       "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -371,7 +371,7 @@
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -408,7 +408,7 @@
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -443,7 +443,7 @@
       "contentHash": "92f9448b23a90ea3bb932ee55cc3ccce",
       "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -478,7 +478,7 @@
       "contentHash": "76814c83c32552ed2b521c816b4d801a",
       "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -516,7 +516,7 @@
       "contentHash": "ad714a6368ee7d43cded6bbe8af0b155",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -547,11 +547,11 @@
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithCollateral\\IDOWithCollateral.sol": {
-      "lastModificationDate": 1647295853066,
-      "contentHash": "8c6802dcb2c8f2a5384b5593e655fd79",
+      "lastModificationDate": 1647707475578,
+      "contentHash": "76553f4569d7bd8c7c44430378d431a7",
       "sourceName": "contracts/IDO/extensions/IDOWithCollateral/IDOWithCollateral.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -577,22 +577,21 @@
         "../../IDO.sol",
         "@openzeppelin/contracts/security/ReentrancyGuard.sol",
         "@openzeppelin/contracts/access/AccessControlEnumerable.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "./IIDOWithCollateral.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IDOWithCollateral"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDO.sol": {
-      "lastModificationDate": 1647295665505,
-      "contentHash": "04d675573dd86973f6438aae03440923",
+      "lastModificationDate": 1647707203343,
+      "contentHash": "95075da5aafcfe047685273898ff1079",
       "sourceName": "contracts/IDO/IDO.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -618,21 +617,22 @@
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/security/Pausable.sol",
         "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
         "./IIDO.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IDO"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithCollateral\\IIDOWithCollateral.sol": {
-      "lastModificationDate": 1646310339271,
-      "contentHash": "ac1a1ffbe71f4d8f2f1813a85760689a",
+      "lastModificationDate": 1647706119677,
+      "contentHash": "94e88eeccf301f5e1c27c24ffaf84fd1",
       "sourceName": "contracts/IDO/extensions/IDOWithCollateral/IIDOWithCollateral.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -658,18 +658,18 @@
         "@openzeppelin/contracts/token/ERC20/IERC20.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IIDOWithCollateral"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IIDO.sol": {
-      "lastModificationDate": 1647295318540,
-      "contentHash": "095860c35338b44e7eb572db2d707bae",
+      "lastModificationDate": 1647706087929,
+      "contentHash": "3292f700df4bfffc4aab7a27ef5eb18b",
       "sourceName": "contracts/IDO/IIDO.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -692,21 +692,21 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IIDO"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDOWithJustCollateral.sol": {
-      "lastModificationDate": 1646418174534,
-      "contentHash": "7a4d5941a4454606617967e24045b6fa",
+      "lastModificationDate": 1647705988913,
+      "contentHash": "d004cbfb0d30a8e2090e6b143004a6c7",
       "sourceName": "contracts/IDO/IDOWithJustCollateral.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -732,18 +732,18 @@
         "./extensions/IDOWithCollateral/IDOWithCollateral.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IDOWithJustCollateral"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDOWithCollateralAndWhitelist.sol": {
-      "lastModificationDate": 1646416906580,
-      "contentHash": "6273b8c7cc37fa858e086182ab38a3f8",
+      "lastModificationDate": 1647706124168,
+      "contentHash": "1119cd441dbc05726240af36e984939c",
       "sourceName": "contracts/IDO/IDOWithCollateralAndWhitelist.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -770,18 +770,18 @@
         "./extensions/IDOWithWhitelist/IDOWithWhitelist.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IDOWithCollateralAndWhitelist"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithWhitelist\\IDOWithWhitelist.sol": {
-      "lastModificationDate": 1646416741311,
-      "contentHash": "0f6bffcbf4b30fb8cc70ce8b95b0ece5",
+      "lastModificationDate": 1647707509133,
+      "contentHash": "c617fd49e72494663ed08350ea98bf18",
       "sourceName": "contracts/IDO/extensions/IDOWithWhitelist/IDOWithWhitelist.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -809,18 +809,18 @@
         "@openzeppelin/contracts/access/AccessControlEnumerable.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IDOWithWhitelist"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\extensions\\IDOWithWhitelist\\IIDOWithWhitelist.sol": {
-      "lastModificationDate": 1646309632896,
-      "contentHash": "38274c6f027d28d73c7edc5eb6dd26dc",
+      "lastModificationDate": 1647705916329,
+      "contentHash": "1e0dba5047edd144e686d8cde97afc45",
       "sourceName": "contracts/IDO/extensions/IDOWithWhitelist/IIDOWithWhitelist.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -844,18 +844,18 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IIDOWithWhitelist"
       ]
     },
     "C:\\Users\\lukey\\Documents\\Blockchain\\Artemis\\artemis-contracts\\contracts\\IDO\\IDOWithJustWhitelist.sol": {
-      "lastModificationDate": 1646936554077,
-      "contentHash": "ce92c39e74b916eb7996dfc91912fe29",
+      "lastModificationDate": 1647705994213,
+      "contentHash": "18a47a02534458bbafb761545d3bbd3f",
       "sourceName": "contracts/IDO/IDOWithJustWhitelist.sol",
       "solcConfig": {
-        "version": "0.8.12",
+        "version": "0.8.13",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -881,7 +881,7 @@
         "./extensions/IDOWithWhitelist/IDOWithWhitelist.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.13"
       ],
       "artifacts": [
         "IDOWithJustWhitelist"
