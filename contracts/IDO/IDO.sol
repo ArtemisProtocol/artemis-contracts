@@ -82,7 +82,7 @@ contract IDO is IIDO, Ownable, Pausable, ReentrancyGuard {
     //Withdraw the ONE raised during the IDO.
     function withdraw() external override onlyOwner {
         //Require the buying period has ended.
-        require(block.timestamp >= _parameters.buyingEndsAt, "Buying has not ended yet.");
+        require(block.timestamp >= _parameters.buyingEndsAt + _parameters.withdrawWait, "Cannot withdraw yet.");
         //Get withdrawable amount.
         uint256 toWithdraw = withdrawable();
         //Update withdrawn amount.

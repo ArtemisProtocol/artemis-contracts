@@ -436,6 +436,11 @@
               "internalType": "uint256",
               "name": "vestingEndsAt",
               "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "withdrawWait",
+              "type": "uint256"
             }
           ],
           "internalType": "struct Parameters",

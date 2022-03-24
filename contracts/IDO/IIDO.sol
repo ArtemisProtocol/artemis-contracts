@@ -11,6 +11,7 @@ struct Parameters {
     uint256 buyingEndsAt;
     uint256 vestingStartsAt;
     uint256 vestingEndsAt;
+    uint256 withdrawWait;
 }
 struct UserStats {
     uint256 contributed;
